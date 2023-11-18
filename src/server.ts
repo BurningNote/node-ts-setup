@@ -18,7 +18,7 @@ class Server {
 
   private routes(): void {
     const router = express.Router();
-    router.get("/sunil", (req: Request, res: Response, next: NextFunction) => {
+    router.get("/", (req: Request, res: Response, next: NextFunction) => {
       res.json({ message: "Hello, world!" });
     });
     this.app.use(router);
