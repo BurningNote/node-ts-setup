@@ -4,6 +4,7 @@ import express, { Application, NextFunction, Request, Response } from "express";
 import { UserRoutes } from "./modules/user/routes";
 import sequelize from "./storageHandlers/database.handler";
 import User from './modules/user/controllers/user';
+import { IndexRoutes } from './routes';
 
 class Server {
 
@@ -24,7 +25,7 @@ class Server {
   }
 
   private routes(): void {
-    this.app.use(`${this.BASE_URI}/${this.API_VERSION}/user`, (new UserRoutes()).router);
+    this.app.use(`${this.BASE_URI}/${this.API_VERSION}`,(new IndexRoutes()).router);
   }
 
   private async establishDbConnection(): Promise<any> {
